@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🎯 Career Prediction Result</h1>
+
+        <h2 style="text-align:center; margin:20px 0; color:#22c55e;">
+            {{ prediction }}
+        </h2>
+
+        <h3 style="
+            text-align:center;
+            color:red;
+            font-size:22px;
+            margin-top:-10px;
+            margin-bottom:20px;
+        ">
+            🎯 Match Score: {{ match_score }}%
+        </h3>
+
+        <hr><br>
+
+        <h3>📖 Description</h3>
+        <p>{{ info.description }}</p>
+
+        <br>
+
+        <h3>💰 Salary Package</h3>
+        <p>{{ info.salary }}</p>
+
+        <br>
+
+        <h3>🛠 Required Skills</h3>
+
+        <ul>
+            {% for skill in info.skills %}
+            <li>✅ {{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+        <br>
+
+        <h3>📚 Recommended Courses</h3>
+
+        <ul>
+            {% for course in info.courses %}
+            <li>🎓 {{ course }}</li>
+            {% endfor %}
+        </ul>
+
+        <br>
+
+        <h3>🗺 Career Roadmap</h3>
+
+        <ol>
+            {% for step in roadmap %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+
+        <br><br>
+
+        <div style="text-align:center;">
+
+            <a href="/">
+                <button>
+                    🔄 Predict Again
+                </button>
+            </a>
+
+            <a href="/download">
+                <button class="download-btn">
+                    📄 Download PDF Report
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+users.db
+resume.pdf
+career_report.pdf

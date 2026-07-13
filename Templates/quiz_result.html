@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Quiz Result</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<div class="card">
+
+
+<h1>🎉 Quiz Completed</h1>
+
+
+<h2>
+{{ subject }} Quiz
+</h2>
+
+
+<h3>
+{{ username }}
+</h3>
+
+
+<p>
+Your Score:
+</p>
+
+
+<h1>
+{{ score }}/{{ total }}
+</h1>
+
+
+<a href="{{ url_for('quiz') }}">
+
+<button>
+Try Another Quiz
+</button>
+
+</a>
+
+
+
+<a href="{{ url_for('dashboard') }}">
+
+<button>
+Back Dashboard
+</button>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+</body>
+
+</html>

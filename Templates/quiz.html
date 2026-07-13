@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Quiz | VidyaGram AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>📝 Daily Quiz</h1>
+
+<p>
+Welcome <b>{{ username }}</b> 👋
+</p>
+
+<hr>
+
+<h3>Select Your Quiz Subject</h3>
+
+
+<div class="dashboard-grid">
+
+{% for subject in subjects %}
+
+<a href="{{ url_for('start_quiz', subject=subject) }}">
+<button>
+{{ subject }} Quiz
+</button>
+</a>
+
+{% endfor %}
+
+</div>
+
+
+<br>
+
+<a href="{{ url_for('dashboard') }}">
+<button>
+⬅ Back Dashboard
+</button>
+</a>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Progress Tracker</title>
+</head>
+<body>
+
+    <h1>Welcome {{ username }}</h1>
+
+    <h2>Quiz History</h2>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Subject</th>
+            <th>Score</th>
+            <th>Total</th>
+            <th>Date</th>
+        </tr>
+
+
+        {% for quiz in quiz_history %}
+        <tr>
+            <td>{{ quiz[0] }}</td>
+            <td>{{ quiz[1] }}</td>
+            <td>{{ quiz[2] }}</td>
+            <td>{{ quiz[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+
+    <h2>Quiz Performance</h2>
+
+<canvas id="quizChart" width="600" height="300"></canvas>
+<script>
+
+const labels = [
+{% for quiz in quiz_history %}
+"{{ quiz[0] }}",
+{% endfor %}
+];
+
+const scores = [
+{% for quiz in quiz_history %}
+{{ quiz[1] }},
+{% endfor %}
+];
+
+new Chart(document.getElementById('quizChart'), {
+
+type: 'bar',
+
+data: {
+
+labels: labels,
+
+datasets: [{
+
+label: 'Quiz Scores',
+
+data: scores
+
+}]
+
+}
+
+});
+
+</script>
+
+    <h2>Career Prediction History</h2>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Career</th>
+            <th>Match Score</th>
+            <th>Date</th>
+        </tr>
+
+        {% for prediction in prediction_history %}
+        <tr>
+            <td>{{ prediction[0] }}</td>
+            <td>{{ prediction[1] }}%</td>
+            <td>{{ prediction[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

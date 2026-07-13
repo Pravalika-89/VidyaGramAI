@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidyaGram AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🎓 VidyaGram AI</h1>
+
+        <p class="subtitle">
+            AI Powered Career Prediction & Learning Assistant
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <div class="input-box">
+                <label>10th Percentage</label>
+                <input type="number" name="tenth" placeholder="Enter your 10th %" required>
+            </div><br>
+
+            <div class="input-box">
+                <label>12th Percentage</label>
+                <input type="number" name="inter" placeholder="Enter your Inter %" required>
+            </div><br>
+
+            <div class="input-box">
+                <label>Programming Skill (1-10)</label>
+                <input type="number" name="programming" min="1" max="10" placeholder="Rate yourself" required>
+            </div><br>
+
+            <div class="input-box">
+                <label>Communication Skill (1-10)</label>
+                <input type="number" name="communication" min="1" max="10" placeholder="Rate yourself" required>
+            </div><br>
+
+            <button type="submit">
+                🚀 Predict Career
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

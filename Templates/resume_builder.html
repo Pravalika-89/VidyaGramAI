@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Builder</title>
+</head>
+<body>
+
+<h1>Resume Builder</h1>
+
+<form action="/generate_resume" method="POST">
+
+    <label>Name</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Phone</label><br>
+    <input type="text" name="phone" required><br><br>
+
+    <label>Education</label><br>
+    <textarea name="education"></textarea><br><br>
+
+    <label>Skills</label><br>
+    <textarea name="skills"></textarea><br><br>
+
+    <label>Projects</label><br>
+    <textarea name="projects"></textarea><br><br>
+
+    <button type="submit">Generate Resume</button>
+
+</form>
+
+</body>
+</html>

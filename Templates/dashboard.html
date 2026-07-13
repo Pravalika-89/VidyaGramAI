@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | VidyaGram AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>🎓 VidyaGram AI</h1>
+
+        <p class="subtitle">
+            Welcome, <b>{{ username }}</b> 👋
+        </p>
+
+        <p style="color:#666; margin-bottom:25px;">
+            Your AI-Powered Career Guidance Platform
+        </p>
+
+        <div class="dashboard-grid">
+
+            <a href="/">
+                <button>
+                    🎯 Career Prediction
+                </button>
+            </a>
+
+            <a href="/assistant">
+                <button>
+                    🤖 AI Career Assistant
+                </button>
+            </a>
+
+            <a href="{{ url_for('learning') }}">
+                <button>
+                    📚 Learning Hub
+                </button>
+            </a>
+             <a href="{{ url_for('quiz') }}">
+    <button>
+        📝 Daily Quiz
+    </button>
+</a>
+<a href="{{ url_for('progress') }}">
+    <button>
+        📈 Progress Tracker
+    </button>
+</a>
+
+            <a href="/download">
+                <button>
+                    📄 Download Report
+                </button>
+            </a>
+
+
+
+            <a href="/profile" text-align="center">Profile</a>
+        </div>
+
+        <hr style="margin:35px 0;">
+
+        <h3>📊 Recent Predictions</h3>
+
+        {% if history %}
+
+        <table style="width:100%; margin-top:20px; border-collapse:collapse;">
+
+            <tr style="background:#4f46e5; color:white;">
+                <th style="padding:10px;">Career</th>
+                <th style="padding:10px;">Match Score</th>
+                <th style="padding:10px;">Date</th>
+            </tr>
+
+            {% for item in history %}
+
+            <tr style="text-align:center;">
+                <td style="padding:10px;">{{ item[0] }}</td>
+                <td style="padding:10px;">{{ item[1] }}%</td>
+                <td style="padding:10px;">{{ item[2] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <p>No predictions yet.</p>
+
+        {% endif %}
+
+        <hr style="margin:30px 0;">
+
+        <h3>🚀 Upcoming Features</h3>
+
+        <ul style="text-align:left; line-height:2; color:#444;">
+            <li>AI Resume Analyzer</li>
+            <li>Interview Preparation</li>
+            <li>Roadmap Generator</li>
+            <li>English Communication</li>
+            <li>Daily Career Quiz</li>
+            <li>Learning Progress Dashboard</li>
+        </ul>
+
+        <br>
+
+        <a href="/logout">
+            <button style="background:#ef4444;">
+                🚪 Logout
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
